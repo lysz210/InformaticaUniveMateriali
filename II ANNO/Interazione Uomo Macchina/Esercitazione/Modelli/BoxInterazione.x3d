@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D version="3.0" profile="Immersive" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+	<head>
+		<meta name="filename" content="BoxInterazione.x3d" />
+		<meta name="generator" content="Blender 2.66 (sub 1)" />
+	</head>
+	<Scene>
+	
+		<Transform DEF="boxInnovazione" id="boxInnovazione" onclick="goTo('Innovazione');"
+		           translation="0.219651 0.417446 0.084581"
+		           scale="0.105864 0.190538 0.127805"
+		           rotation="1.000000 0.000000 0.000000 0.000000"
+		           >
+			<Group DEF="Cube_000">
+				<Shape>
+					<Appearance>
+						<Material DEF="Material_001"
+						          diffuseColor="0.800 0.000 0.730"
+						          specularColor="0.401 0.401 0.401"
+						          emissiveColor="0.000 0.000 0.000"
+						          ambientIntensity="0.333"
+						          shininess="0.098"
+						          transparency="1.0"
+						          />
+					</Appearance>
+					<IndexedFaceSet solid="true"
+					                coordIndex="1 0 4 5 -1 5 6 2 1 -1 6 7 3 2 -1 0 3 7 4 -1 0 1 2 3 -1 7 6 5 4 -1 "
+					                >
+						<Coordinate DEF="coords_Cube_000"
+						            point="-1.000000 -1.000000 -1.000000 -1.000000 1.000000 -1.000000 1.000000 1.000000 -1.000000 1.000000 -1.000000 -1.000000 -1.000000 -1.000000 1.000000 -1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 -1.000000 1.000000 "
+						            />
+					</IndexedFaceSet>
+				</Shape>
+			</Group>
+		</Transform>
+		<Transform DEF="boxGovernance" id="boxGovernance" onclick="goTo('Governance');"
+		           translation="1.580334 0.417446 0.084581"
+		           scale="0.099626 0.190538 0.127805"
+		           rotation="1.000000 0.000000 0.000000 0.000000"
+		           >
+			<Group DEF="Cube_010">
+				<Shape>
+					<Appearance>
+						<Material USE="Material_001" />
+					</Appearance>
+					<IndexedFaceSet solid="true"
+					                coordIndex="1 0 4 5 -1 5 6 2 1 -1 6 7 3 2 -1 0 3 7 4 -1 0 1 2 3 -1 7 6 5 4 -1 "
+					                >
+						<Coordinate DEF="coords_Cube_010"
+						            point="-1.000000 -1.000000 -1.000000 -1.000000 1.000000 -1.000000 1.000000 1.000000 -1.000000 1.000000 -1.000000 -1.000000 -1.000000 -1.000000 1.000000 -1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 -1.000000 1.000000 "
+						            />
+					</IndexedFaceSet>
+				</Shape>
+			</Group>
+		</Transform>
+		<Transform DEF="boxAcqua" id="boxAcqua" onclick="goTo('Acqua',event);"
+		           translation="1.369812 0.417446 0.084581"
+		           scale="0.092741 0.190538 0.127805"
+		           rotation="1.000000 0.000000 0.000000 0.000000"
+		           >
+			<Group DEF="Cube_009">
+				<Shape>
+					<Appearance>
+						<Material USE="Material_001" />
+					</Appearance>
+					<IndexedFaceSet solid="true"
+					                coordIndex="1 0 4 5 -1 5 6 2 1 -1 6 7 3 2 -1 0 3 7 4 -1 0 1 2 3 -1 7 6 5 4 -1 "
+					                >
+						<Coordinate DEF="coords_Cube_009"
+						            point="-1.000000 -1.000000 -1.000000 -1.000000 1.000000 -1.000000 1.000000 1.000000 -1.000000 1.000000 -1.000000 -1.000000 -1.000000 -1.000000 1.000000 -1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 -1.000000 1.000000 "
+						            />
+					</IndexedFaceSet>
+				</Shape>
+			</Group>
+		</Transform>
+		<Transform DEF="boxStudenti" id="boxStudenti" onclick="goTo('Studenti');"
+		           translation="1.173869 0.417446 0.084581"
+		           scale="0.097172 0.190538 0.127805"
+		           rotation="1.000000 0.000000 0.000000 0.000000"
+		           >
+			<Group DEF="Cube_008">
+				<Shape>
+					<Appearance>
+						<Material USE="Material_001" />
+					</Appearance>
+					<IndexedFaceSet solid="true"
+					                coordIndex="1 0 4 5 -1 5 6 2 1 -1 6 7 3 2 -1 0 3 7 4 -1 0 1 2 3 -1 7 6 5 4 -1 "
+					                >
+						<Coordinate DEF="coords_Cube_008"
+						            point="-1.000000 -1.000000 -1.000000 -1.000000 1.000000 -1.000000 1.000000 1.000000 -1.000000 1.000000 -1.000000 -1.000000 -1.000000 -1.000000 1.000000 -1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 -1.000000 1.000000 "
+						            />
+					</IndexedFaceSet>
+				</Shape>
+			</Group>
+		</Transform>
+		<Transform DEF="boxRifiuti" id="boxRifiuti" onclick="goTo('Rifiuti');"
+		           translation="0.953790 0.417446 0.084581"
+		           scale="0.101948 0.190538 0.127805"
+		           rotation="1.000000 0.000000 0.000000 0.000000"
+		           >
+			<Group DEF="Cube_007">
+				<Shape>
+					<Appearance>
+						<Material USE="Material_001" />
+					</Appearance>
+					<IndexedFaceSet solid="true"
+					                coordIndex="1 0 4 5 -1 5 6 2 1 -1 6 7 3 2 -1 0 3 7 4 -1 0 1 2 3 -1 7 6 5 4 -1 "
+					                >
+						<Coordinate DEF="coords_Cube_007"
+						            point="-1.000000 -1.000000 -1.000000 -1.000000 1.000000 -1.000000 1.000000 1.000000 -1.000000 1.000000 -1.000000 -1.000000 -1.000000 -1.000000 1.000000 -1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 -1.000000 1.000000 "
+						            />
+					</IndexedFaceSet>
+				</Shape>
+			</Group>
+		</Transform>
+		<Transform DEF="boxSupplyChain" id="boxSupplyChain" onclick="goTo('SupplyChain');"
+		           translation="0.727427 0.417446 0.084581"
+		           scale="0.097251 0.190538 0.127805"
+		           rotation="1.000000 0.000000 0.000000 0.000000"
+		           >
+			<Group DEF="Cube_006">
+				<Shape>
+					<Appearance>
+						<Material USE="Material_001" />
+					</Appearance>
+					<IndexedFaceSet solid="true"
+					                coordIndex="1 0 4 5 -1 5 6 2 1 -1 6 7 3 2 -1 0 3 7 4 -1 0 1 2 3 -1 7 6 5 4 -1 "
+					                >
+						<Coordinate DEF="coords_Cube_006"
+						            point="-1.000000 -1.000000 -1.000000 -1.000000 1.000000 -1.000000 1.000000 1.000000 -1.000000 1.000000 -1.000000 -1.000000 -1.000000 -1.000000 1.000000 -1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 -1.000000 1.000000 "
+						            />
+					</IndexedFaceSet>
+				</Shape>
+			</Group>
+		</Transform>
+		<Transform DEF="boxEnergia" id="boxEnergia" onclick="goTo('Energia');"
+		           translation="0.519525 0.417446 0.084581"
+		           scale="0.086938 0.190538 0.127805"
+		           rotation="1.000000 0.000000 0.000000 0.000000"
+		           >
+			<Group DEF="Cube_005">
+				<Shape>
+					<Appearance>
+						<Material USE="Material_001" />
+					</Appearance>
+					<IndexedFaceSet solid="true"
+					                coordIndex="1 0 4 5 -1 5 6 2 1 -1 6 7 3 2 -1 0 3 7 4 -1 0 1 2 3 -1 7 6 5 4 -1 "
+					                >
+						<Coordinate DEF="coords_Cube_005"
+						            point="-1.000000 -1.000000 -1.000000 -1.000000 1.000000 -1.000000 1.000000 1.000000 -1.000000 1.000000 -1.000000 -1.000000 -1.000000 -1.000000 1.000000 -1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 -1.000000 1.000000 "
+						            />
+					</IndexedFaceSet>
+				</Shape>
+			</Group>
+		</Transform>
+		<Transform DEF="boxPersonale" id="boxPersonale" onclick="goTo('Personale');"
+		           translation="-0.031587 0.417446 0.084581"
+		           scale="0.103061 0.190538 0.127805"
+		           rotation="1.000000 0.000000 0.000000 0.000000"
+		           >
+			<Group DEF="Cube_003">
+				<Shape>
+					<Appearance>
+						<Material USE="Material_001" />
+					</Appearance>
+					<IndexedFaceSet solid="true"
+					                coordIndex="1 0 4 5 -1 5 6 2 1 -1 6 7 3 2 -1 0 3 7 4 -1 0 1 2 3 -1 7 6 5 4 -1 "
+					                >
+						<Coordinate DEF="coords_Cube_003"
+						            point="-1.000000 -1.000000 -1.000000 -1.000000 1.000000 -1.000000 1.000000 1.000000 -1.000000 1.000000 -1.000000 -1.000000 -1.000000 -1.000000 1.000000 -1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 -1.000000 1.000000 "
+						            />
+					</IndexedFaceSet>
+				</Shape>
+			</Group>
+		</Transform>
+		<Transform DEF="boxMateriali" id="boxMateriali" onclick="goTo('Materiali');"
+		           translation="-0.251020 0.417446 0.084581"
+		           scale="0.102202 0.190538 0.127805"
+		           rotation="1.000000 0.000000 0.000000 0.000000"
+		           >
+			<Group DEF="Cube_002">
+				<Shape>
+					<Appearance>
+						<Material USE="Material_001" />
+					</Appearance>
+					<IndexedFaceSet solid="true"
+					                coordIndex="1 0 4 5 -1 5 6 2 1 -1 6 7 3 2 -1 0 3 7 4 -1 0 1 2 3 -1 7 6 5 4 -1 "
+					                >
+						<Coordinate DEF="coords_Cube_002"
+						            point="-1.000000 -1.000000 -1.000000 -1.000000 1.000000 -1.000000 1.000000 1.000000 -1.000000 1.000000 -1.000000 -1.000000 -1.000000 -1.000000 1.000000 -1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 -1.000000 1.000000 "
+						            />
+					</IndexedFaceSet>
+				</Shape>
+			</Group>
+		</Transform>
+		<Transform DEF="boxMobilita" id="boxMobilita" onclick="goTo('Mobilita');"
+		           translation="-0.622986 0.417446 0.084581"
+		           scale="0.208018 0.190538 0.127805"
+		           rotation="1.000000 0.000000 0.000000 0.000000"
+		           >
+			<Group DEF="Cube_001">
+				<Shape>
+					<Appearance>
+						<Material USE="Material_001" />
+					</Appearance>
+					<IndexedFaceSet solid="true"
+					                coordIndex="1 0 4 5 -1 5 6 2 1 -1 6 7 3 2 -1 0 3 7 4 -1 0 1 2 3 -1 7 6 5 4 -1 "
+					                >
+						<Coordinate DEF="coords_Cube_001"
+						            point="-1.000000 -1.000000 -1.000000 -1.000000 1.000000 -1.000000 1.000000 1.000000 -1.000000 1.000000 -1.000000 -1.000000 -1.000000 -1.000000 1.000000 -1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 -1.000000 1.000000 "
+						            />
+					</IndexedFaceSet>
+				</Shape>
+			</Group>
+		</Transform>
+	</Scene>
+</X3D>
