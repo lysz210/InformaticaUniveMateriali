@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documento senza titolo</title>
+</head>
+<body>
+<script>
+	var svg = {};
+	var svgHeight = null;
+	var svgWidth = null;
+	var circleRMax = 40;
+	var actualR = circleRMax;
+	var direction = true;
+	var speed = 2;
+	var circles = new Array();
+	window.onload = main;
+	function main(){
+		var div = document.createElement("div");
+		svg = document.createElementNS("http://www.w3.org/2000/svg","svg");
+		svg.setAttribute("width", 500);
+		svg.setAttribute("height",500);
+		svg.style.border = "1px black solid";
+		div.appendChild(svg);
+		document.getElementsByTagName("body")[0].appendChild(div);
+		
+		window.onclick = function(event){
+			addCircle(event.x, event.y, actualR);
+		}
+		
+		window.setInterval(function(){
+			actualR += speed * (direction ? -1 : 1);	
+			if(actualR <= 0 || actualR >= circleRMax)
+				direction = !direction;
+			for(var i = 0; i < circles.length; i++)
+				circles[i].setAttribute("r", actualR);
+		},50);
+	}
+	function addCircle(x, y, r){
+		var circle = document.createElementNS("http://www.w3.org/2000/svg","circle");
+		circle.setAttribute("cx", x);
+		circle.setAttribute("cy", y);
+		circle.setAttribute("r", r);
+		circle.setAttribute("fill", "green");
+		circles.push(circle);
+		svg.appendChild(circle);
+	}
+</script>
+</body>
+</html>

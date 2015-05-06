@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documento senza titolo</title>
+</head>
+<body>
+<script>
+	failed = false;
+	function get(url, callback, failure, obj){
+		var request = new XMLHttpRequest();
+		request.open("GET", url);
+		request.onreadystatechange = function(){
+			if(request.readyState === 4 && request.status === 200){
+				var type = request.getResponseHeader("content-type").split(" ")[0];
+				if(type == "application/json;")
+					callback(JSON.parse(request.responseText), obj);
+				else
+					failure("Formato risposta sconosciuto");	
+			}
+		}
+		request.send(null);
+	}
+	window.onload = main;
+	function main(){
+		var elements = document.getElementsByClassName("wind");
+		for(var i = 0; i < elements.length; i++){
+			get(
+				"http://api.openweathermap.org/data/2.5/weather?q=" + elements[i].innerHTML,
+				function(obj, element){
+					element.innerHTML = obj["wind"]["speed"];	
+				},
+				function(err){
+					if(!failed){
+						failed = true;
+						alert("Errore di comunicazione:\n" + err);	
+					}
+				},
+				elements[i]
+			);	
+		}
+	}
+</script>
+<div class="wind">Venice,it</div>
+<div class="wind">Rome,it</div>
+</body>
+</html>
