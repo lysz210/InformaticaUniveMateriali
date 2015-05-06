@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<x3d>
+    <Scene>
+        <Transform translation='0.0 1.1 0.0'>
+            <Shape>
+                <Sphere /> 
+                <Appearance>
+                </Appearance>
+            </Shape>
+	    </Transform> 
+        
+        <Transform translation='0.0 -0.5 0.0' >
+            <Shape>
+				<Box size='10 0.05 10' />
+                <Appearance>
+					<Material DEF="Material001" diffuseColor='0 0 0' />
+                </Appearance>
+            </Shape>
+	    </Transform> 
+        
+    </Scene>
+</x3d>

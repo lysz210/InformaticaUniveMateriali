@@ -1,0 +1,20 @@
+<X3D>
+	<Scene>
+		<Transform DEF="Sphere" id="Sphere" translation='0.0 1.1 0.0' scale='1 1 1'>
+					<Shape>
+						<Sphere /> 
+						<Appearance>
+						</Appearance>
+					</Shape>
+				</Transform> 
+				
+				<Transform DEF="Plane" translation='0.0 -0.5 0.0' >
+					<Shape>
+						<Box size='10 0.05 10' />
+						<Appearance>
+							<Material DEF="Material001" diffuseColor='0.8 0.8 0.8' />
+						</Appearance>
+					</Shape>
+		</Transform> 
+	</Scene>
+</X3D>
