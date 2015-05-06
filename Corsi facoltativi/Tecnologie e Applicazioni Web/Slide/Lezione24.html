@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0081)http://moodle.unive.it/pluginfile.php/13148/mod_resource/content/1/Lezione24.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	
+	<title>Lezione 24 - Geodecoding e SQLite</title>
+	<meta name="GENERATOR" content="LibreOffice 3.4  (Win32)">
+	<meta name="CREATED" content="0;0">
+	<meta name="CHANGED" content="20120504;9515922">
+	<style type="text/css">
+	<!--
+		H2.cjk { font-family: "SimSun" }
+		H2.ctl { font-family: "Mangal" }
+		H3.western { font-family: "Albany", sans-serif }
+		H3.cjk { font-family: "HG Mincho Light J" }
+		H3.ctl { font-family: "Arial Unicode MS" }
+	-->
+	</style>
+<style id="clearly_highlighting_css" type="text/css">/* selection */ html.clearly_highlighting_enabled ::-moz-selection { background: rgba(246, 238, 150, 0.99); } html.clearly_highlighting_enabled ::selection { background: rgba(246, 238, 150, 0.99); } /* cursor */ html.clearly_highlighting_enabled {    /* cursor and hot-spot position -- requires a default cursor, after the URL one */    cursor: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--cursor.png") 14 16, text; } /* highlight tag */ em.clearly_highlight_element {    font-style: inherit !important; font-weight: inherit !important;    background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--yellow.png");    background-repeat: repeat-x; background-position: top left; background-size: 100% 100%; } /* the delete-buttons are positioned relative to this */ em.clearly_highlight_element.clearly_highlight_first { position: relative; } /* delete buttons */ em.clearly_highlight_element a.clearly_highlight_delete_element {    display: none; cursor: pointer;    padding: 0; margin: 0; line-height: 0;    position: absolute; width: 34px; height: 34px; left: -17px; top: -17px;    background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--delete-sprite.png"); background-repeat: no-repeat; background-position: 0px 0px; } em.clearly_highlight_element a.clearly_highlight_delete_element:hover { background-position: -34px 0px; } /* retina */ @media (min--moz-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {    em.clearly_highlight_element { background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--yellow@2x.png"); }    em.clearly_highlight_element a.clearly_highlight_delete_element { background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--delete-sprite@2x.png"); background-size: 68px 34px; } } </style><style type="text/css"></style><style>[touch-action="none"]{ -ms-touch-action: none; touch-action: none; }[touch-action="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; }[touch-action="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; }[touch-action="scroll"],[touch-action="pan-x pan-y"],[touch-action="pan-y pan-x"]{ -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y; }</style></head>
+<body lang="it-IT" dir="LTR">
+<h1>Lezione 23 – Geodecoding e SQLite</h1>
+<h2 class="western">Geodecoding</h2>
+<p>Geocoding permette di traslare da un indirizzo a delle coordinate
+e viceversa. Questo permette di conoscera la posizione di un certo
+indirizzo o l'indirizzo piu' vicino di una certa posizione. La
+decodifica e' possibile interrogando un server remoto che contiene le
+posizione degli indirizzi. Per questa ragione l'applicazione che usa
+il geodecoding deve richiedere i permessi per accedere a Internet.
+Quindi nel manifesto dovra' comparire:<br><font face="Courier New, monospace">&lt;uses-permission
+android:name="android.permission.INTERNET"/&gt;</font><br>La
+claase Geodecoder fornisce due funzionalita': una per conoscere la
+posizioen di un indirizzo e l'altra data la posizione di trovare
+l'indirizzo. Tali operazioni vengono contestualizzate attraverso i
+locale in quanto gli indirizzi dipendono fortemente dal paese e
+lingua dell'utente.</p>
+<p><font face="Courier New, monospace">Geocoder geocoder = new
+Geocoder(getApplicationContext(),<br>Locale.getDefault());</font><br><br><br>
+</p>
+<p>Tutti e due i mentodi ritornano una lista di oggetti Addres che
+rappresentano i possibili risultati. In fase di chimata si specifica
+il numero massimo di risultiati che si vuole vengano restituiti.<br>I
+dati contenuti nel singolo indirizzo sono tutti quelli che e' stato
+possibile recuperare nel database.</p>
+<p>L'accesso al database viene effettuato in modo sincrono e quindi
+il thread si blocca finche' non riceve la risposta. Per questa
+ragione, le chiamate a questi metodi andrebbero fatte in thread
+secondari e non nel thread principale come negli esempi che seguono. 
+</p>
+<h3 class="western">Reverse Geocoding: dalla posizione all'indirizzo</h3>
+<p><br><font face="Courier New, monospace">location
+=<br>locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);<br>double
+latitude = location.getLatitude();<br>double longitude =
+location.getLongitude();<br>List&lt;Address&gt; addresses = null;</font></p>
+<p><font face="Courier New, monospace">int maxResults=5;<br>Geocoder
+gc = new Geocoder(this, Locale.getDefault());<br>try {<br>addresses =
+gc.getFromLocation(latitude, longitude, maxResults);<br>} catch
+(IOException e) {}</font></p>
+<p><br>L'accuratezza e la granularita' della risposta dipende dai
+dati presenti nel database remoto e che dipendono dalla localita' e
+dal tempo.</p>
+<h3 class="western">Forward Geocoding: dall'indirizzo alla posizione</h3>
+<p><br>Forward geocoding (o semplicemente geocoding) trova gli
+indirizzi corrispondenti a una stringa. La stringa contiene un nome
+di indirizzo. Ogni stringa con cui possiamo interrogare Google Maps
+e' adatta.</p>
+<p>La lista di indirizzi restituita include la longitudine e la
+latidutine dell'indirizzo. <br><br><br><font face="Courier New, monospace">Geocoder
+fwdGeocoder = new Geocoder(this, Locale.US);<br>String streetAddress
+= "via Torino 155, Venezia";<br>List&lt;Address&gt;
+locations = null;</font></p>
+<p><font face="Courier New, monospace">int maxResult=5;<br>try
+{<br>locations = fwdGeocoder.getFromLocationName(streetAddress,
+maxResult);<br>} catch (IOException e) {}</font><br>Per una
+localizzazione piu' precisa e' possibile usare il metodo overloaded
+con la possibilita' di specificare il rettangolo delimitatore della
+zona dove vogliamo cercare l'indirizzo, cosa che puo' risultare
+perticolarmente utile se vogliamo restringere la ricerca alla zona
+visualizzata all'utente (prossimo paragrafo).<br><font face="Courier New, monospace">List&lt;Address&gt;
+locations = null;<br>try {<br>locations =
+fwdGeocoder.getFromLocationName(streetAddress, 10,<br>n, e, s, w);<br>}
+catch (IOException e) {}</font><br><br>Esempio di utilizzo
+dell'oggetto Address:</p>
+<p><br><font face="Courier New, monospace">private void
+updateWithNewLocation(Location location) {<br>String
+latLongString;<br>TextView myLocationText;<br>myLocationText =
+(TextView)findViewById(R.id.myLocationText);<br>String addressString
+= "No address found";<br>if (location != null) {<br>double
+lat = location.getLatitude();<br>double lng =
+location.getLongitude();<br>latLongString = "Lat:" + lat +
+"\nLong:" + lng;<br>double latitude =
+location.getLatitude();<br>double longitude =
+location.getLongitude();<br>Geocoder gc = new Geocoder(this,
+Locale.getDefault());<br>try {<br>List&lt;Address&gt; addresses =
+gc.getFromLocation(latitude, longitude, 1);<br>StringBuilder sb = new
+StringBuilder();<br>if (addresses.size() &gt; 0) {<br>Address address
+= addresses.get(0);<br>for (int i = 0; i &lt;
+address.getMaxAddressLineIndex();
+i++)<br>sb.append(address.getAddressLine(i)).append("\n");<br>sb.append(address.getLocality()).append("\n");<br>sb.append(address.getPostalCode()).append("\n");<br>sb.append(address.getCountryName());<br>}<br>addressString
+= sb.toString();<br>} catch (IOException e) {}<br>} else
+{<br>latLongString = "No location
+found";<br>}<br>myLocationText.setText("Your Current
+Position is:\n" +<br>latLongString + "\n" +
+addressString);<br>}</font></p>
+<h2 class="western">SQLite</h2>
+<p>Anche Android prevede la possibilità di accedere ad un
+Database. L'API che viene usata non è però JDBC. Anche
+il DB non è un DB server ma è implementato tramite un
+libreria C che gira nello stesso processo dell'applicazione Android
+(molto simile al Derby nella versione Embedded).</p>
+<p>La modalità di accesso al DB è molto simile a quella
+di accesso ai Content Provider che vedremo nel prossimo paragrafo.</p>
+<p>Ecco un esempio per la creazione di un database con una tabella:</p>
+<pre class="western">SQLiteDatabase db;
+db = openOrCreateDatabase(“DB”, Context.MODE_PRIVATE, null);
+db.execSQL("create table PROVA  ( id  integer primary key autoincrement, Nome text not null);”);</pre><p>
+Una query al DB viene fatta utilizzando il metodo <font face="Courier 10 Pitch"><b>query</b></font>
+che restituisce un cursore (istanza oggetto Cursor). Gli argomenti
+del/i metodo/i <font face="Courier 10 Pitch">query</font> sono:</p>
+<ol>
+	<li><p>un booleano equivalente alla keyword SQL DISTINCT;</p>
+	</li><li><p>il nome della tabella;</p>
+	</li><li><p>un'array di stringhe con i nomi delle colonne che compaiono
+	nel risultato della query (proiezione);</p>
+	</li><li><p>L'equivalente della clausola WHERE che seleziona le righe da
+	restituire. Si possono includere i caratteri speciali '?' Per
+	gestire i parametri analogamente ai PreparedStatement. 
+	</p>
+	</li><li><p>Un'array di stringhe che rimpiazzeranno nell'ordine i
+	parametri della clausola WHERE rappresentati da '?'.</p>
+	</li><li><p>La clausola GROUP BY che definisce come le righe devono
+	essere raggruppate. 
+	</p>
+	</li><li><p>La clausola HAVING che seleziona i gruppi di righe da
+	restituire</p>
+	</li><li><p>Una stringa che specifica l'ordine 
+	</p>
+	</li><li><p>Una stringa opzionale per limitare il numero di righe
+	ritornate.</p>
+</li></ol>
+<p>Es</p>
+<pre class="western">String[] result_columns = new String[] {“id”, “nome”, “cognome”};
+Cursor allRows = db.query(true, “PROVA”, result_columns,null, null, null, null, null, null);
+
+String where = “cognome=?”;
+String order = “nome”;
+String[] parameters = new String[]{requiredValue};
+Cursor res = db.query(“PROVA”, null, where,parameters, null, null, order);
+
+while(res.moveToFirst()) {
+
+String nome = res.getString(“nome”);
+
+} 
+
+// Creiamo una riga di valori da inserire
+ContentValues newValues = new ContentValues();
+// assegnare un valore per ogni colonna
+newValues.put(“nome”, newValue);
+[ ... Ripetere per ogni colonna ... ]
+// inserire la riga nella tabella del DB
+db.insert(“PROVA”, null, newValues);
+
+// Creiamo una riga per modificare una riga nel DB
+ContentValues updatedValues = new ContentValues();
+// assegnare un valore per ogni  colonna
+updatedValues.put(“nome”, newValue);
+[ ... Ripetere per ogni colonna ... ]
+String where = “id=?";
+String[] parameters = new String[]{“3”};
+// Aggiornare la riga nel DB
+db.update(“PROVA”, updatedValues, where, parameters);
+
+db.delete(“PROVA”, “nome=?", nnew String[]{“alessandro”});
+db.close();</pre>
+
+
+
+</body></html>
