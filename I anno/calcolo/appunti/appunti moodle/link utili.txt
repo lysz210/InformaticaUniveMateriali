@@ -1,0 +1,3 @@
+http://mathinsight.org/double_integral_change_variables_area_calculation
+http://en.wikipedia.org/wiki/Polynomial_long_division
+http://tutorial.math.lamar.edu/Classes/CalcIII/DoubleIntegrals.aspx
