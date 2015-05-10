@@ -1,0 +1,58 @@
+######semplici appunti presi durante il corso,     ######
+######Come si risolvono gli esercizi su monteCarlo ######
+
+
+#Se non c'è scritto il tipo di distribuzione uso la uniforme
+montecarlo<-function(n){
+x<-runif(n,0,1)
+y=(-x^2)
+m<-mean(y)
+return(m)
+}
+
+montecarloPois<-function(n){#Si scriva una funzione di R che approssimi usando un metodo Monte Carlo la 
+x<-rpois(n,3) #oppure x=rexp(n,1/media)#probabilità che una variabile con distribuzione di Poisson di parametro 3
+y<-x<=3#assuma valori minori o uguali a 3.
+m=mean(y)
+return(m)
+}
+
+montecarloIntegrale<-function(n){
+x<-runif(n,0,1)#Esercizio l'integrale da 0 a 1 di e^x
+y<-exp(x) #se devo cambiare gli estremi devo moltiplicare per la ambiezza dell'intervallo
+z<-mean(y)
+return (z)
+}
+
+#n numero di tentativi,a base intervallo,b fine intervallo, t esponete di e ^ x
+montecarloIntegrale2<-function(n,a,b,t){
+x<-runif(n,a,b)#Esercizio l'integrale tra a e b di e^tx #n numero di tentativi,a base intervallo,b fine intervallo, t esponete di e ^ x
+y<-exp(t*x)*abs(a+b) #se mi serve calcolare una exp con a e b diversi moltiplico
+#per il loro intervallo se mi serve cambio la funzione da integrare
+z<-mean(y)
+return (z)
+}
+
+montecarlo<-function(n,l){
+#Si scriva una funzione di R che approssimi usando un metodo Monte Carlo la 
+#probabilità che una variabile 
+#con distribuzione di Poisson di parametro 3
+#assuma valori minori o uguali a 3.
+x<-rpois(n,l)
+y<-x[x<=3]
+ret<-length(y)/length(x)
+return (mean(ret))
+}
+
+montecarloExp<-function(n,l){
+#Si scriva una funzione di R che approssimi usando un metodo Monte Carlo la probabilità che una variabile
+#con distribuzione esponenziale di media 2 assuma valori maggiori o uguali a 4.
+x<-rexp(1000,1/l)
+y<-x[x>=4]
+ret<-length(y)/length(x)
+return (mean(ret))
+}
+
+
+
+

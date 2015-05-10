@@ -1,0 +1,109 @@
+######semplici appunti presi durante il corso,######
+######sono proprio appunti su come si usano i ######
+######comandi in R			      ######
+
+
+x <- c(1:10,30) 
+
+round(mean(x),2) #arrotonda la media di x
+median(x) # calcola la mediana di x
+
+########## quartili ##########
+#scarto interquartile contiene il 50% delle osservazioni
+
+#la var() su R è la varianza corretta vedi le slide
+
+x <- data(ChickWeight) ## assegno
+
+> head(x)
+  weight Time Chick Diet
+1     42    0     1    1
+2     51    2     1    1
+3     59    4     1    1
+4     64    6     1    1
+5     76    8     1    1
+6     93   10     1    1
+> tail(x)
+    weight Time Chick Diet
+573    155   12    50    4
+574    175   14    50    4
+575    205   16    50    4
+576    234   18    50    4
+577    264   20    50    4
+578    264   21    50    4
+
+> boxplot(x$weight) #stammpa il boxplot dei polli!!!
+
+> hist(x$weight) #stampa l'istogramma con le frequenze in asse Y
+> hist(x$weight,freq=F)#stampa istogramma con le densità di frequenza in asse Y
+
+> di <- cars$speed>15 #array di vettori booleani
+> boxsplot(dist~di) #stampo in base ai vettori se minore di 15 o maggiore nei due boxplots
+
+############Funzione per calcolare la varianza come a mano
+ varnick <- function(x){
+ y<-0.0
+ for (i in 1:length(x)) {
+ y<-y+(x[i]-mean(x))^2
+ }
+ y<-y/length(x)
+ return(y)
+ }
+
+########## funzione che calcola indice di gini #######
+
+ gini <- function(rel){
+ y<-0 
+ for (i in 1:length(rel)){
+ 	y<-y+rel[i]*(1-rel[i])
+ }
+	return(y)
+}
+##############gini normalizato##############
+ gininorm <- function(rel){
+ y<-0
+ k<-0.0
+ for (i in 1:length(rel)){
+ 	y<-y+(rel[i]*(1-rel[i]))
+	k<-k+1.0
+}
+	y<-((k/(k-1.0))*y)
+	return(y)
+}
+
+####funzione di shannon #######
+
+ shannon <- function(rel){
+ y<-0
+ for (i in 1:length(rel)){
+ 	y<-y+(rel[i])*(log(rel[i]))
+	
+}
+	y<- y*(-1)
+	return(y)
+}
+####funzione di shannon Normalizzata#######
+ shannonnorm <- function(rel){
+ y<-0
+ k<-0
+ for (i in 1:length(rel)){
+ 	y<-y+(rel[i])*(log(rel[i]))
+	k<-k+1
+}
+	y<- (y*(-1))/(log(k))
+	return(y)
+}
+
+
+##### indice di assimetria#########
+
+asimIndex <- (x){
+ y<-0
+ n<-0
+ for (i in 1:length(x)){
+ 	y<y+((x[i])-(mean(x[i])))^3
+	n<-n+1
+}
+	y<- ((1/n)*(sqrt(varnick(x)))^4)*y
+	return(y)
+}
