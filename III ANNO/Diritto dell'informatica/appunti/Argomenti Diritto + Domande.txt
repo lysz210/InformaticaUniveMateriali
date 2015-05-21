@@ -1,0 +1,27 @@
+Di seguito gli argomenti trattati a lezione, e quindi possibili come domande all'esame.
+Se volete contribuire con precisazioni e nuovi argomenti fate pure :D 
+
+1) Diritto in generale
+2) Riservatezza
+3) Documento e contratto
+4) Firma digitale e PEC
+5) Codice del consumo (contratti a distanza e commercio elettronico)
+6) Aste
+7) Moneta digitale
+8) Responsabilità provider
+9) Diritto d'autore
+10) Concorrenza
+
+Queste invece le possibili domande (fatte l'anno scorso):
+
+- qual'è la responsabilità dei provider di fronte ad illeciti compiuti da utenti?
+- in quali casi si considerano a conoscenza di eventuali illeciti da parte degli utenti? 
+- Perchè non si aumentano le pene per i provider?
+- Cos'è il commercio elettronico e  quali sono le sue caratteristiche principali?
+- Supponiamo che acquirente e conumatore siano in Italia quali sono le leggi di riferimento per regolare la transazione?
+- Spiega il concetto di dematerializzazione
+- spiega il concetto di deterritorializzazione
+- Cos'è un documento? -> e il documento infomatico? Problemi? => Firma autenticata (di fronte al notaio), firme elettroniche
+- Dematerializzazione e moneta digitale
+
+-- iMacTia
