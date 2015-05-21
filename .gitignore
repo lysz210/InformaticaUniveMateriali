@@ -4,11 +4,17 @@
 *.mp4
 */.texpadtmp
 *.log
+<<<<<<< Updated upstream
+=======
 Icon
 .dropbox
 Iconr
-*/*/.texpadtmp
 *.lyx
 Il-Diritto-dell_39_Era-Digitale---Pascuzzi---Dirit.epub
 */Sketching User Expiences.pdf
 Sketching User Expiences.pdf
+
+Tesi/Tesi con Latex/.texpadtmp
+>>>>>>> Stashed changes
+
+.idea
