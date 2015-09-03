@@ -1,0 +1,74 @@
+﻿######semplici appunti presi durante il corso, ######
+######sono presenti le domande a crocette che  ######
+######sono state somministrate durante il corso######
+
+
+
+
+
+
+
+1) Se la successione variabili causali Xn, n=1,2,... converge\n 
+	in distribuzione ad una costante 0 allora:\n
+a. Lim n->inf (FXn(x) = 0) per ogni x € R\n
+b. Lim n->inf (P{|Xn|>eps})=1 per ogni eps>0\n
+c. Lim n->inf (P{|Xn|<eps})=1 per ogni eps>0 OK..\n
+
+2) Se Y1,Y2,Y3 sono variabili aleatorie iid N(1,1), allora:\n
+a. sum(i,iYi) ha valore atteso e varianza 1\n
+b. sum(i,iYi) ha valore atteso e varianza 3\n
+c. sum(i,iYi) ha distribuzione N(6,14) OK..\n
+
+3) SE Y1,Y2,Y3 sono variabili aleatorie con Yi~N(i,i^2), i=1,2,3 e 
+cov(Yi,Yj)=1/2, allora:\n
+a. sum(i,Yi) ha distribuzione N(ni,ni^2+n)\n
+b. sum(i,Yi) ha valore atteso 6 e varianza 17 OK..\n
+c. MY {media campionaria} ha valore atteso 6 e varianza 14/3+3/2\n
+
+4)Se Y1,...,Y5 sono variabili aleatorie iid Bi(5,0.2) allora: \n
+a. sum(i,Yi) ha distribuzione approssimata normale\n
+b. MY ha distribuzione approssimata N(1,8/5)\n
+c. sum(i,Yi) ha valore atteso 5 e varianza 4 OK..\n
+
+5)se X1,...,Xn sono va iid con varianza finita, allora:\n
+a.MXn ha distribuzione normale standard\n
+b.MXn ha distribuzione approssimativamente normale OK..\n
+c.MXn ha distribuzione normale standard se le Xi, i=1,...,n\n
+ sono normali standard
+
+6)se Y1,...,Y4 sono va U(0,1) con COV(Yi,Yj)=1/2, i!=j, i,j=1,...,4 allora:\n
+a. My ha distribuzione N(2,1/12)\n
+b. sum(i,Yi) ha ancora distribuzione uniforme\n
+c. sum(i,Yi) ha valore atteso 2 e varianza 19/3 OK..\n
+
+7)Se Y1,...,Yn sono va iid,allora:\n
+a. MY ha varianza inversamente proporzionale alla numerosità del campione OK..\n
+b. MY ha distribuzione normale centrata in E(Yi)\n
+c. sum(i,Yi) ha distribuzione troppo difficile da calcolare\n
+
+8) se y1,...,Yn sono va indipendendi tutte media mu e var sigma^2, e n \n
+	sufficentemente grande allora: \n
+	a. sum(i,Yi) ha distribuzione N(n*mu,sigma^2)\n
+	b.Ybarra ha distribuzione approssimata a N(mu,sigma^2/n) OK..\n
+	
+9) Se Y1,...,Y5 sono variabili aleatorie indipendenti, con Yi~P(i),
+ i=1,...,5, allora :\n
+a.  sum(i,Yi) ha distribuzione approssimata N(5i,5i)\n
+b.  sum(i,Yi) ha distribuzione P(15) OK..\n
+c.  Ybarra ha distribuzione P(3)\n
+
+10) Se Y1,Y2,Y3 sono variabili aleatorie con  distribuzione esponenziale\n
+ con E(Yi)=i e Cov(Yi,Yj)=1/2, i!=j, i,j=1,2,3, allora \n
+a. sum(i,Yi) ha valore atteso 6 e varianza 14\n
+b. sum(i,Yi) ha distribuzione N(6,14)  \n
+c. Ybarra ha valore atteso 2 e varianza 17/9 OK..\n
+
+11) Se Y1,...,Yn sono variabili aleatorie i.i.d. U(0,1) e n è sufficientemente grande, allora  \n
+a.  sum(i,Yi) ha distribuzione approssimata N(n/2, n12^-1) OK..\n
+b. 	Ybarra ha distribuzione N(n/2,1/(12 n))  \n
+c.	c. Ybarra ha distribuzione approssimata N(1/2,12/n)\n
+
+12) Se Y1,...,Y4 sono va iid U(0,1) allora:\n
+a.sum(i,ai*Yi) ha distribuzione uniforme con valore atteso sum(i,ai/2) e varianza sum(i,ai^2)\n
+b.Ybarra ha distribuzione N(sum(i,ai/4)\n
+c. sum(i,ai*Yi) ha valore atteso sum(i,ai/2) OK..\n

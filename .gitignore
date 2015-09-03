@@ -1,7 +1,22 @@
 */.DS_Store
 .DS_Store
 *.mov
-LR_mobile.mp4
 *.mp4
-III ANNO/Tesi/Tesi con Latex/.texpadtmp
+*/.texpadtmp
 *.log
+<<<<<<< HEAD
+.project
+=======
+<<<<<<< Updated upstream
+=======
+Icon
+.dropbox
+Iconr
+*.lyx
+Il-Diritto-dell_39_Era-Digitale---Pascuzzi---Dirit.epub
+*/Sketching User Expiences.pdf
+Sketching User Expiences.pdf
+Tesi/Tesi con Latex/.texpadtmp
+>>>>>>> Stashed changes
+.idea
+>>>>>>> 1c01a8b096355d2954b2d6b7ad1e2ab001003fdd

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Test vento </title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	</head>
+	<body>
+		<div>
+			Venezia:
+			<div class="wind">
+				Venece,it
+			</div>
+		</div>
+		<div>
+			Milano:
+			<div class="wind">
+				Milan,it
+			</div>
+		</div>
+		<div>
+			Roma:
+			<div class="wind">
+				Rome,at
+			</div>
+		</div>
+		<script>
+            $('.wind').each(function(i) {
+                var elt = $(this),
+                    qdata = {
+                    q : elt.html()
+                };
+                $.ajax({
+                    url : "http://api.openweathermap.org/data/2.5/weather",
+                    method : 'get',
+                    data : qdata,
+                    dataType : 'json'
+                }).done(function(data) {
+                    var wind = data.wind;
+                    elt.html(wind.speed);
+                }).fail(function(err) {
+                    elt.html("error...");
+                    elt.fadeOut(1000);
+                    console.log(err);
+                });
+            });
+		</script>
+	</body>
+</html>
