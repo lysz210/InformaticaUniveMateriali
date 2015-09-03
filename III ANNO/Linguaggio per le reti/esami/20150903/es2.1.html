@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>eliminazione di tutti i caratteri</title>
+	</head>
+	<body>
+		hi,
+		<h1> How are you? </h1>
+		<div>
+			hello,
+			<p>
+				test <span>more text</span>
+			</p>
+		</div>
+		<script>
+			    var map = Array.prototype.map,
+			        filter = Array.prototype.filter,
+			        tmp = map.call(document.querySelectorAll('body, body *'), function(a){ return a.childNodes; }), // recupero di tutti gli elementi
+			        telts = tmp.reduce(function(a, b){ 
+			            return a.concat( filter.call(b, function(v){ return v.nodeType == 3; }) ); 
+			        }, []),
+			        intervalID = 0,
+			        interval = 100;
+			
+			    function rndInt(max){
+			        max = max || 100;
+			        return parseInt( Math.random() * max, 10 );
+			    }
+			
+			    telts.deleteChar = function(){
+			        if(this.length === 0){
+			            return;
+			        }
+			        var index = rndInt(this.length),
+			            tnode = this[index],
+			            txt = tnode.nodeValue,
+			            chIndex = rndInt(txt.length);
+			        tnode.nodeValue = txt.substring(0, chIndex) + txt.substring(chIndex + 1);
+			        if(tnode.nodeValue.length <= 0){
+			            this.splice(index, 1);
+			        }
+			    };
+			
+			
+			    if(telts.length > 0){
+			        intervalID = setInterval( function () {
+			            telts.deleteChar();
+			            if(telts.length <= 0){
+			                clearInterval(intervalID);
+			            }
+			        }, interval);
+			    }
+
+		</script>
+	</body>
+
+</html>
